@@ -9,6 +9,7 @@ public class ApplicationManager {
     WebDriver wd;
 
     UserHepler user;
+    BoardHelper board;
 
     public void init() {
         wd = new ChromeDriver();
@@ -17,6 +18,7 @@ public class ApplicationManager {
         wd.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         user = new UserHepler(wd);
+        board = new BoardHelper(wd);
     }
 
     public void stop() {
@@ -26,5 +28,9 @@ public class ApplicationManager {
 
     public UserHepler getUser() {
         return user;
+    }
+
+    public BoardHelper getBoard() {
+        return board;
     }
 }
